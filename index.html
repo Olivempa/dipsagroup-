@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dipsa Business Group — Parchment Coffee, Rai Coast District</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --bean:    #2B1B12;
+    --parch:   #F5EFE3;
+    --parch2:  #EDE3D0;
+    --leaf:    #5C7042;
+    --cherry:  #A8472E;
+    --wood:    #8B6F47;
+    --ink-soft: #5A4A3A;
+    --line:    rgba(43,27,18,0.16);
+    --radius:  2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--parch);
+    color:var(--bean);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--cherry); color:var(--parch);}
+
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    line-height:1.05;
+  }
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+    letter-spacing:0.02em;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  @media(max-width:640px){ .wrap{padding:0 20px;} }
+
+  :focus-visible{outline:2px solid var(--cherry); outline-offset:3px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ───────── Texture: paper grain ───────── */
+  .grain{
+    position:fixed; inset:0; pointer-events:none; z-index:1;
+    opacity:0.035; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ───────── Header / nav ───────── */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,239,227,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces',serif; font-weight:700; font-size:20px;
+  }
+  .brand-mark{
+    width:34px; height:34px; border-radius:50%;
+    background:var(--bean);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--parch); font-size:14px; font-weight:700;
+    font-family:'Fraunces',serif;
+  }
+  .brand small{
+    display:block; font-family:'Inter',sans-serif; font-weight:500;
+    font-size:10.5px; letter-spacing:0.08em; color:var(--ink-soft);
+    text-transform:uppercase; margin-top:1px;
+  }
+  nav.links{display:flex; gap:34px; font-size:14.5px; font-weight:500;}
+  nav.links a{
+    position:relative; padding:4px 0; color:var(--bean);
+    transition:color .2s;
+  }
+  nav.links a::after{
+    content:""; position:absolute; left:0; bottom:0; width:0; height:1.5px;
+    background:var(--cherry); transition:width .25s ease;
+  }
+  nav.links a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--bean); color:var(--parch);
+    padding:10px 20px; font-size:13.5px; font-weight:600;
+    border-radius:var(--radius);
+    transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--cherry);}
+  .menu-btn{display:none; background:none; border:none; cursor:pointer;}
+
+  @media(max-width:860px){
+    nav.links{display:none;}
+    .menu-btn{display:block;}
+  }
+
+  /* ───────── Hero: the ledger ───────── */
+  .hero{
+    padding:64px 0 56px;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:start;
+  }
+  @media(max-width:900px){ .hero-grid{grid-template-columns:1fr; gap:40px;} }
+
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--cherry); font-weight:500;
+    display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1.5px; background:var(--cherry);}
+
+  .hero h1{
+    font-size:clamp(38px, 5.4vw, 64px);
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--cherry); font-weight:500;
+  }
+  .hero p.lede{
+    font-size:18px; color:var(--ink-soft); max-width:48ch; margin-bottom:32px;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px;}
+  .btn{
+    padding:14px 26px; font-size:14.5px; font-weight:600; border-radius:var(--radius);
+    display:inline-flex; align-items:center; gap:8px; transition:all .2s;
+    border:1.5px solid transparent; cursor:pointer;
+  }
+  .btn-primary{background:var(--bean); color:var(--parch);}
+  .btn-primary:hover{background:var(--cherry); transform:translateY(-1px);}
+  .btn-ghost{border-color:var(--bean); color:var(--bean);}
+  .btn-ghost:hover{background:var(--bean); color:var(--parch);}
+
+  .hero-stats{
+    display:flex; gap:36px; flex-wrap:wrap;
+  }
+  .stat .num{
+    font-family:'Fraunces',serif; font-size:30px; font-weight:600; color:var(--bean);
+  }
+  .stat .lbl{
+    font-size:12px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.06em; margin-top:2px;
+  }
+
+  /* ── The ledger card (signature element seed) ── */
+  .ledger{
+    background:#fff; border:1px solid var(--line);
+    box-shadow:0 18px 50px -20px rgba(43,27,18,0.35);
+    transform:rotate(1deg);
+    padding:0;
+    position:relative;
+  }
+  .ledger::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:6px;
+    background:repeating-linear-gradient(90deg, var(--cherry) 0 16px, transparent 16px 28px);
+    opacity:0.7;
+  }
+  .ledger-head{
+    padding:24px 26px 16px; border-bottom:1px dashed var(--line);
+    display:flex; justify-content:space-between; align-items:baseline;
+  }
+  .ledger-head h3{font-size:15px; font-weight:600; font-family:'Inter',sans-serif;}
+  .ledger-head span{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-soft);}
+  .ledger-rows{padding:6px 26px 22px;}
+  .ledger-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:13px 0; border-bottom:1px solid var(--line);
+    font-size:13.5px;
+  }
+  .ledger-row:last-child{border-bottom:none;}
+  .ledger-row .who{font-weight:600;}
+  .ledger-row .where{color:var(--ink-soft); font-size:12px;}
+  .ledger-row .kg{font-family:'JetBrains Mono',monospace; font-size:13px;}
+  .ledger-row .paid{
+    font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--leaf); font-weight:500;
+  }
+  .ledger-foot{
+    padding:14px 26px; background:var(--parch2);
+    display:flex; justify-content:space-between; font-size:12.5px;
+    font-family:'JetBrains Mono',monospace; color:var(--ink-soft);
+  }
+
+  /* ───────── Route section (signature element) ───────── */
+  .route-section{padding:90px 0 100px; background:var(--bean); color:var(--parch); position:relative;}
+  .route-section .eyebrow{color:var(--wood);}
+  .route-section .eyebrow::before{background:var(--wood);}
+  .route-head{max-width:640px; margin-bottom:64px;}
+  .route-head h2{font-size:clamp(30px,4vw,44px); color:var(--parch);}
+  .route-head p{color:rgba(245,239,227,0.7); margin-top:16px; font-size:16px;}
+
+  .route{
+    position:relative;
+    display:flex; justify-content:space-between; align-items:flex-start;
+    gap:8px;
+  }
+  .route::before{
+    content:""; position:absolute; top:23px; left:5%; right:5%; height:2px;
+    background:repeating-linear-gradient(90deg, var(--wood) 0 10px, transparent 10px 18px);
+  }
+  .route-stop{
+    position:relative; flex:1; min-width:0; text-align:center;
+  }
+  .route-stop .dot{
+    width:46px; height:46px; border-radius:50%; background:var(--parch);
+    color:var(--bean); display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces',serif; font-weight:700; font-size:16px;
+    margin:0 auto 18px; position:relative; z-index:2;
+    border:3px solid var(--bean);
+  }
+  .route-stop .dot.cherry{background:var(--cherry); color:var(--parch); border-color:var(--cherry);}
+  .route-stop h4{font-family:'Inter',sans-serif; font-size:15px; font-weight:600; margin-bottom:8px;}
+  .route-stop p{font-size:13px; color:rgba(245,239,227,0.65); max-width:22ch; margin:0 auto;}
+  .route-stop .tag{
+    display:inline-block; margin-top:10px; font-family:'JetBrains Mono',monospace;
+    font-size:10.5px; color:var(--wood); letter-spacing:0.06em; text-transform:uppercase;
+  }
+
+  @media(max-width:760px){
+    .route{flex-direction:column; gap:36px; align-items:stretch;}
+    .route::before{display:none;}
+    .route-stop{display:flex; align-items:center; gap:18px; text-align:left;}
+    .route-stop .dot{margin:0; flex-shrink:0;}
+    .route-stop p{margin:0;}
+  }
+
+  /* ───────── What we do ───────── */
+  .section{padding:90px 0;}
+  .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:54px; flex-wrap:wrap;}
+  .section-head h2{font-size:clamp(28px,3.6vw,40px); max-width:18ch;}
+  .section-head p{color:var(--ink-soft); max-width:38ch; font-size:15px;}
+
+  .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .cards.cards-3{grid-template-columns:repeat(3,1fr);}
+  @media(max-width:860px){ .cards{grid-template-columns:1fr;} }
+  .card{background:var(--parch); padding:36px 32px;}
+  .card .ico{
+    width:42px; height:42px; border-radius:50%; border:1.5px solid var(--bean);
+    display:flex; align-items:center; justify-content:center; margin-bottom:22px;
+    font-family:'Fraunces',serif; font-size:17px;
+  }
+  .card h3{font-size:19px; margin-bottom:10px; font-weight:600;}
+  .card p{font-size:14.5px; color:var(--ink-soft);}
+  .card .status{
+    margin-top:18px; font-family:'JetBrains Mono',monospace; font-size:11px;
+    text-transform:uppercase; letter-spacing:0.06em; color:var(--leaf); font-weight:500;
+  }
+  .card .status.soon{color:var(--cherry);}
+
+  /* ───────── Why farmers trust us ───────── */
+  .trust{background:var(--parch2); padding:90px 0;}
+  .trust-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:center;}
+  @media(max-width:900px){ .trust-grid{grid-template-columns:1fr;} }
+  .trust h2{font-size:clamp(28px,3.6vw,40px); margin-bottom:24px;}
+  .trust p.lede{color:var(--ink-soft); font-size:16px; margin-bottom:32px; max-width:46ch;}
+
+  .principles{display:flex; flex-direction:column; gap:0;}
+  .principle{
+    display:flex; gap:20px; padding:22px 0; border-top:1px solid var(--line);
+  }
+  .principle:last-child{border-bottom:1px solid var(--line);}
+  .principle .mark{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--cherry); padding-top:3px; flex-shrink:0; width:28px;}
+  .principle h4{font-size:15.5px; font-weight:600; margin-bottom:5px;}
+  .principle p{font-size:14px; color:var(--ink-soft);}
+
+  .quote-block{
+    background:var(--bean); color:var(--parch); padding:44px 38px; position:relative;
+  }
+  .quote-block::before{
+    content:"“"; font-family:'Fraunces',serif; font-size:90px; line-height:1; color:var(--cherry);
+    position:absolute; top:6px; left:24px; opacity:0.5;
+  }
+  .quote-block blockquote{
+    font-family:'Fraunces',serif; font-size:22px; font-weight:500; line-height:1.4;
+    margin:30px 0 26px; position:relative; z-index:1;
+  }
+  .quote-block .who{font-size:13px; color:rgba(245,239,227,0.7);}
+  .quote-block .who strong{color:var(--parch); display:block; font-size:14.5px; margin-bottom:2px;}
+
+  /* ───────── Pricing strip ───────── */
+  .pricing-strip{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:0;
+  }
+  .pricing-wrap{display:flex; overflow-x:auto; scrollbar-width:none;}
+  .pricing-wrap::-webkit-scrollbar{display:none;}
+  .pricing-item{
+    flex:0 0 auto; padding:20px 38px; display:flex; flex-direction:column; gap:4px;
+    border-right:1px solid var(--line); white-space:nowrap;
+  }
+  .pricing-item .label{font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-soft);}
+  .pricing-item .value{font-family:'JetBrains Mono',monospace; font-size:18px; font-weight:500; color:var(--bean);}
+  .pricing-item .value .unit{font-size:12px; color:var(--ink-soft); font-weight:400;}
+
+  /* ───────── Contact / CTA ───────── */
+  .cta-section{padding:100px 0; text-align:center;}
+  .cta-section h2{font-size:clamp(30px,4.4vw,52px); max-width:18ch; margin:0 auto 20px;}
+  .cta-section p{color:var(--ink-soft); max-width:46ch; margin:0 auto 38px; font-size:16px;}
+  .cta-buttons{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+
+  .contact-grid{
+    margin-top:80px; display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  @media(max-width:760px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact-card{background:var(--parch); padding:28px; text-align:left;}
+  .contact-card .lbl{font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--cherry); font-weight:600; margin-bottom:10px;}
+  .contact-card .val{font-size:15px; font-weight:500;}
+  .contact-card .sub{font-size:13px; color:var(--ink-soft); margin-top:3px;}
+
+  /* ───────── Footer ───────── */
+  footer{background:var(--bean); color:rgba(245,239,227,0.6); padding:48px 0 28px;}
+  .footer-grid{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px; padding-bottom:32px; border-bottom:1px solid rgba(245,239,227,0.12);}
+  .footer-brand{display:flex; align-items:center; gap:10px;}
+  .footer-brand .brand-mark{background:var(--cherry); color:var(--parch);}
+  .footer-brand div{font-family:'Fraunces',serif; color:var(--parch); font-weight:600; font-size:17px;}
+  .footer-links{display:flex; gap:40px; flex-wrap:wrap;}
+  .footer-col h5{font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--wood); margin-bottom:14px;}
+  .footer-col a, .footer-col span{display:block; font-size:13.5px; margin-bottom:9px; color:rgba(245,239,227,0.7);}
+  .footer-col a:hover{color:var(--parch);}
+  .footer-bottom{padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12.5px;}
+
+  /* reveal on scroll */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ───────── Active nav state ───────── */
+  nav.links a.active{color:var(--cherry);}
+  nav.links a.active::after{width:100%;}
+
+  /* ───────── Inner page banner ───────── */
+  .page-banner{padding:56px 0 48px; border-bottom:1px solid var(--line);}
+  .page-banner .crumb{
+    font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft);
+    margin-bottom:18px; display:flex; align-items:center; gap:8px;
+  }
+  .page-banner .crumb a{color:var(--ink-soft); transition:color .2s;}
+  .page-banner .crumb a:hover{color:var(--cherry);}
+  .page-banner h1{font-size:clamp(32px,4.6vw,52px);}
+  .page-banner p{color:var(--ink-soft); max-width:52ch; margin-top:16px; font-size:16px;}
+
+  /* ───────── About page: story + team ───────── */
+  .story-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;}
+  @media(max-width:900px){ .story-grid{grid-template-columns:1fr; gap:40px;} }
+  .story-grid h2{font-size:clamp(26px,3.2vw,34px); margin-bottom:18px;}
+  .story-grid p{color:var(--ink-soft); font-size:15.5px; margin-bottom:16px;}
+  .story-grid p strong{color:var(--bean);}
+
+  .timeline{display:flex; flex-direction:column;}
+  .tl-item{display:flex; gap:20px; padding:20px 0; border-top:1px solid var(--line);}
+  .tl-item:last-child{border-bottom:1px solid var(--line);}
+  .tl-item .yr{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--cherry); width:56px; flex-shrink:0; padding-top:2px;}
+  .tl-item h4{font-size:15px; font-weight:600; margin-bottom:5px;}
+  .tl-item p{font-size:13.5px; color:var(--ink-soft); margin:0;}
+
+  .team-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:54px;}
+  @media(max-width:760px){ .team-grid{grid-template-columns:1fr;} }
+  .team-card{background:var(--parch); padding:32px;}
+  .team-card .initial{
+    width:52px; height:52px; border-radius:50%; background:var(--bean); color:var(--parch);
+    display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif;
+    font-size:19px; font-weight:600; margin-bottom:20px;
+  }
+  .team-card h4{font-size:16.5px; font-weight:600; margin-bottom:4px;}
+  .team-card .role{font-size:12.5px; color:var(--cherry); font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:14px;}
+  .team-card p{font-size:13.5px; color:var(--ink-soft);}
+
+  /* ───────── Services page ───────── */
+  .service-row{
+    display:grid; grid-template-columns:64px 1fr auto; gap:28px; align-items:start;
+    padding:34px 0; border-top:1px solid var(--line);
+  }
+  .service-row:last-child{border-bottom:1px solid var(--line);}
+  .service-row .ico{
+    width:48px; height:48px; border-radius:50%; border:1.5px solid var(--bean);
+    display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:18px;
+  }
+  .service-row h3{font-size:19px; margin-bottom:8px; font-weight:600;}
+  .service-row p{font-size:14.5px; color:var(--ink-soft); max-width:56ch;}
+  .service-row .status{
+    font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.06em; color:var(--leaf); font-weight:500; white-space:nowrap; padding-top:4px;
+  }
+  .service-row .status.soon{color:var(--cherry);}
+  @media(max-width:700px){
+    .service-row{grid-template-columns:48px 1fr; }
+    .service-row .status{grid-column:2; padding-top:0;}
+  }
+
+  /* ───────── Contact page: form + details ───────── */
+  .contact-layout{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;}
+  @media(max-width:900px){ .contact-layout{grid-template-columns:1fr; gap:48px;} }
+
+  .field{margin-bottom:22px;}
+  .field label{
+    display:block; font-size:12.5px; font-weight:600; text-transform:uppercase;
+    letter-spacing:0.05em; color:var(--ink-soft); margin-bottom:8px;
+  }
+  .field input, .field textarea, .field select{
+    width:100%; padding:13px 14px; font-family:'Inter',sans-serif; font-size:14.5px;
+    border:1.5px solid var(--line); background:#fff; color:var(--bean);
+    border-radius:var(--radius); transition:border-color .2s;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus{
+    border-color:var(--cherry); outline:none;
+  }
+  .field textarea{resize:vertical; min-height:120px;}
+  .form-note{font-size:12.5px; color:var(--ink-soft); margin-top:-6px; margin-bottom:22px;}
+
+  .info-list{display:flex; flex-direction:column; gap:0;}
+  .info-item{display:flex; gap:18px; padding:22px 0; border-top:1px solid var(--line);}
+  .info-item:last-child{border-bottom:1px solid var(--line);}
+  .info-item .ico{
+    width:38px; height:38px; border-radius:50%; background:var(--bean); color:var(--parch);
+    display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0;
+    font-family:'Fraunces',serif;
+  }
+  .info-item h4{font-size:14px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-soft); margin-bottom:5px; font-weight:600;}
+  .info-item p{font-size:15px; font-weight:500;}
+  .info-item .sub{font-size:13px; color:var(--ink-soft); font-weight:400; margin-top:2px;}
+
+  .map-stub{
+    margin-top:32px; border:1px solid var(--line); background:var(--parch2);
+    padding:36px 28px; text-align:center;
+  }
+  .map-stub .pin{font-family:'Fraunces',serif; font-size:28px; color:var(--cherry); margin-bottom:10px;}
+  .map-stub h4{font-size:15px; margin-bottom:6px;}
+  .map-stub p{font-size:13px; color:var(--ink-soft);}
+
+
+  /* ───────── Single-page router ───────── */
+  .route-view{display:none;}
+  .route-view.active-view{display:block;}
+  nav.links a.active{color:var(--cherry);}
+  nav.links a.active::after{width:100%;}
+
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#/home" data-route="home" class="brand">
+      <span class="brand-mark">D</span>
+      <span>Dipsa Business Group
+        <small>Saidor &amp; Nayudo · Rai Coast</small>
+      </span>
+    </a>
+    <nav class="links">
+      <a href="#/home" data-route="home">Home</a>
+      <a href="#/about" data-route="about">About</a>
+      <a href="#/services" data-route="services">Services</a>
+      <a href="#/contact" data-route="contact">Contact</a>
+    </nav>
+    <a href="#/contact" data-route="contact" class="nav-cta">Sell your coffee</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="route-view" id="view-home">
+
+
+  <!-- ───────── HERO ───────── -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Rai Coast District · Madang Province · Est. 2024</div>
+        <h1>Your parchment coffee, <em>paid fairly</em>, moved reliably to Goroka.</h1>
+        <p class="lede">Dipsa Business Group buys parchment coffee directly from farming families in Saidor and Nayudo — no middlemen, no underpaying, no waiting on a buyer who never shows.</p>
+        <div class="hero-actions">
+          <a href="#/contact" data-route="contact" class="btn btn-primary">Talk to a buyer</a>
+          <a href="#/services" data-route="services" class="btn btn-ghost">See how we work</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="num">200+</div><div class="lbl">Farming families</div></div>
+          <div class="stat"><div class="num">18,000kg</div><div class="lbl">Annual volume target</div></div>
+          <div class="stat"><div class="num">2</div><div class="lbl">Buying communities</div></div>
+        </div>
+      </div>
+
+      <div class="ledger">
+        <div class="ledger-head">
+          <h3>Buying record</h3>
+          <span>SAIDOR — THIS WEEK</span>
+        </div>
+        <div class="ledger-rows">
+          <div class="ledger-row">
+            <div><div class="who">M. Kaupa</div><div class="where">Mibu Village</div></div>
+            <div class="kg">42.0 kg</div>
+            <div class="paid">K 189.00</div>
+          </div>
+          <div class="ledger-row">
+            <div><div class="who">T. Mongi</div><div class="where">Ward 15, Nayudo</div></div>
+            <div class="kg">67.5 kg</div>
+            <div class="paid">K 303.75</div>
+          </div>
+          <div class="ledger-row">
+            <div><div class="who">S. Wakam</div><div class="where">Astrolabe Bay</div></div>
+            <div class="kg">28.0 kg</div>
+            <div class="paid">K 126.00</div>
+          </div>
+        </div>
+        <div class="ledger-foot">
+          <span>3 farmers paid on collection day</span>
+          <span>K 4.50 / kg</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── ROUTE / SUPPLY CHAIN ───────── -->
+  <section class="route-section" id="route">
+    <div class="wrap">
+      <div class="route-head reveal">
+        <div class="eyebrow">The journey your coffee takes</div>
+        <h2>From your drying rack to the exporter's door.</h2>
+        <p>This is the actual route — not a flowchart. We run it ourselves, end to end, so your coffee doesn't sit waiting on someone else's schedule.</p>
+      </div>
+
+      <div class="route reveal">
+        <div class="route-stop">
+          <div class="dot cherry">1</div>
+          <h4>Farm collection</h4>
+          <p>We visit Saidor &amp; Nayudo villages directly — no need to carry coffee anywhere yourself.</p>
+          <span class="tag">By foot &amp; dinghy</span>
+        </div>
+        <div class="route-stop">
+          <div class="dot">2</div>
+          <h4>Quality check &amp; weigh-in</h4>
+          <p>Inspected and weighed on the spot. You see the scale, you see the price.</p>
+          <span class="tag">Same-day payment</span>
+        </div>
+        <div class="route-stop">
+          <div class="dot">3</div>
+          <h4>Storage, Saidor</h4>
+          <p>Held in dry, covered storage until transport is ready — no spoilage waiting around.</p>
+          <span class="tag">Saidor depot</span>
+        </div>
+        <div class="route-stop">
+          <div class="dot">4</div>
+          <h4>Transport to Goroka</h4>
+          <p>Moved by truck on a fixed schedule, not whenever someone gets around to it.</p>
+          <span class="tag">~6 hour route</span>
+        </div>
+        <div class="route-stop">
+          <div class="dot cherry">5</div>
+          <h4>Sold to exporters</h4>
+          <p>Delivered to established Goroka exporters for processing and onward export.</p>
+          <span class="tag">Goroka, EHP</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── WHAT WE DO ───────── -->
+  <section class="section" id="what-we-do">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>What we do today — and what's coming next.</h2>
+        <p>We're a buying and transport business first. <a href="#/services" data-route="services" style="color:var(--cherry); text-decoration:underline;">See the full list of services →</a></p>
+      </div>
+
+      <div class="cards reveal">
+        <div class="card">
+          <div class="ico">①</div>
+          <h3>Parchment coffee buying</h3>
+          <p>Direct purchase from farmers in Saidor and Nayudo at transparent, competitive prices — paid on collection.</p>
+          <div class="status">Running now</div>
+        </div>
+        <div class="card">
+          <div class="ico">②</div>
+          <h3>Transport &amp; logistics</h3>
+          <p>Collection by dinghy and truck so farmers don't carry coffee long distances to find a buyer.</p>
+          <div class="status">Running now</div>
+        </div>
+        <div class="card">
+          <div class="ico">③</div>
+          <h3>Coffee grading</h3>
+          <p>On-site grading to help farmers understand quality and earn better prices for stronger harvests.</p>
+          <div class="status soon">In development</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── TRUST ───────── -->
+  <section class="trust" id="trust">
+    <div class="wrap trust-grid">
+      <div class="reveal">
+        <h2>Why farmers in Saidor and Nayudo work with us.</h2>
+        <p class="lede">We're not a one-time buyer passing through. Dipsa is a registered family business, run by people from this district, built to be here next season too.</p>
+
+        <div class="principles">
+          <div class="principle">
+            <div class="mark">01</div>
+            <div><h4>You see the scale</h4><p>Weighing happens in front of you, every time. No disputes after the fact.</p></div>
+          </div>
+          <div class="principle">
+            <div class="mark">02</div>
+            <div><h4>You get paid that day</h4><p>No "come back next week." Payment happens at the point of collection.</p></div>
+          </div>
+          <div class="principle">
+            <div class="mark">03</div>
+            <div><h4>We carry the transport burden</h4><p>You don't need a truck, a dinghy, or a free day to reach a buyer — we come to you.</p></div>
+          </div>
+          <div class="principle">
+            <div class="mark">04</div>
+            <div><h4>We're registered and accountable</h4><p>Incorporated under the PNG Business Groups Incorporation Act — not an informal operator.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-block reveal">
+        <blockquote>Coffee farmers don't need another middleman promising a fair price next time. They need someone who shows up, weighs it straight, and pays before they leave.</blockquote>
+        <div class="who">
+          <strong>Rubben Numunepe</strong>
+          Operations Manager, Dipsa Business Group
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── PRICING STRIP ───────── -->
+  <section class="pricing-strip" id="pricing">
+    <div class="wrap">
+      <div class="pricing-wrap reveal">
+        <div class="pricing-item">
+          <div class="label">Parchment coffee</div>
+          <div class="value">K 4.50 <span class="unit">/ kg</span></div>
+        </div>
+        <div class="pricing-item">
+          <div class="label">Collection</div>
+          <div class="value">Free <span class="unit">in Saidor &amp; Nayudo</span></div>
+        </div>
+        <div class="pricing-item">
+          <div class="label">Payment</div>
+          <div class="value">Same day <span class="unit">on collection</span></div>
+        </div>
+        <div class="pricing-item">
+          <div class="label">Minimum quantity</div>
+          <div class="value">None <span class="unit">any amount accepted</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── CTA / CONTACT ───────── -->
+  <section class="cta-section" id="contact">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow" style="justify-content:center;">Get in touch</div>
+        <h2>Ready for someone to actually show up?</h2>
+        <p>Whether you're a farmer with coffee ready to sell, a wholesaler looking for a reliable supply line, or a partner interested in what we're building — reach out directly.</p>
+        <div class="cta-buttons">
+          <a href="tel:74697783" class="btn btn-primary">Call 7469 7783</a>
+          <a href="#/contact" data-route="contact" class="btn btn-ghost">Visit contact page</a>
+        </div>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div class="contact-card">
+          <div class="lbl">Visit us</div>
+          <div class="val">Saidor &amp; Nayudo</div>
+          <div class="sub">Rai Coast District, Madang Province, PNG</div>
+        </div>
+        <div class="contact-card">
+          <div class="lbl">Postal address</div>
+          <div class="val">C/- P.O. Box 2070</div>
+          <div class="sub">Madang 2511, Madang Province</div>
+        </div>
+        <div class="contact-card">
+          <div class="lbl">Registration</div>
+          <div class="val">4-129031573</div>
+          <div class="sub">Dipsa Business Group (Inc.)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  </div>
+
+  <div class="route-view" id="view-about">
+
+
+  <section class="page-banner">
+    <div class="wrap">
+      <div class="crumb"><a href="#/home" data-route="home">Home</a> / About</div>
+      <h1>A family business, built on the Rai Coast.</h1>
+      <p>Dipsa Business Group started with a simple problem: farmers in Saidor and Nayudo were growing excellent coffee with nowhere reliable to sell it. We set out to fix that — and we're still fixing it, one buying trip at a time.</p>
+    </div>
+  </section>
+
+  <!-- ───────── STORY + TIMELINE ───────── -->
+  <section class="section">
+    <div class="wrap story-grid">
+      <div class="reveal">
+        <h2>Why we exist</h2>
+        <p>Coffee has always grown well in Saidor and Nayudo. What's been missing is a buyer farmers can actually count on — one that shows up on schedule, pays a fair price on the spot, and doesn't disappear after one bad season.</p>
+        <p><strong>Dipsa Business Group</strong> was founded to be that buyer. We're a family-owned enterprise, incorporated under the PNG Business Groups Incorporation Act, and based directly in the communities we buy from — not a distant company sending agents through occasionally.</p>
+        <p>Our model is deliberately simple: buy parchment coffee directly from farmers at a fair, transparent price, carry the transport burden ourselves, and sell on to established exporters in Goroka. No unnecessary middlemen, no disappearing acts.</p>
+        <p>As we grow, we're investing what we earn back into the business — better storage, our own transport, and eventually grading and drying facilities that put more money in farmers' pockets, not less.</p>
+      </div>
+
+      <div class="reveal">
+        <h2 style="margin-bottom:24px;">Where we've been</h2>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="yr">2023</div>
+            <div><h4>First buying trips</h4><p>Informal coffee buying begins in Saidor and Nayudo villages, building the relationships that still anchor the business today.</p></div>
+          </div>
+          <div class="tl-item">
+            <div class="yr">2024</div>
+            <div><h4>Formal incorporation</h4><p>Dipsa Business Group (Inc.) registered under the Business Groups Incorporation Act, Reg. No. 4-129031573.</p></div>
+          </div>
+          <div class="tl-item">
+            <div class="yr">2024</div>
+            <div><h4>Tax registration</h4><p>Registered with PNG Internal Revenue Commission as a recognised taxpayer (TIN 502618045).</p></div>
+          </div>
+          <div class="tl-item">
+            <div class="yr">2026</div>
+            <div><h4>Scaling operations</h4><p>Expanding purchasing capacity, transport capability, and farmer network across the wider Rai Coast District.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── MISSION / VISION STRIP ───────── -->
+  <section class="trust">
+    <div class="wrap trust-grid">
+      <div class="reveal">
+        <h2>What we believe</h2>
+        <p class="lede">Three things guide every buying trip, every price we set, and every decision about where to invest next.</p>
+        <div class="principles">
+          <div class="principle">
+            <div class="mark">①</div>
+            <div><h4>Fair price, every time</h4><p>The price we quote is the price we pay. No discounting after the scale reads, no excuses on collection day.</p></div>
+          </div>
+          <div class="principle">
+            <div class="mark">②</div>
+            <div><h4>We carry the burden, not the farmer</h4><p>Transport, logistics, and the cost of reaching remote villages are our problem to solve — not the farmer's.</p></div>
+          </div>
+          <div class="principle">
+            <div class="mark">③</div>
+            <div><h4>Built to stay, not pass through</h4><p>We live in this district. Being here next season — and the one after — is the whole point.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-block reveal">
+        <blockquote>We're not trying to be the biggest buyer in Madang. We're trying to be the one farmers in Saidor and Nayudo never have to think twice about trusting.</blockquote>
+        <div class="who">
+          <strong>Rubben Numunepe</strong>
+          Operations Manager, Dipsa Business Group
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── TEAM ───────── -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>The people behind Dipsa</h2>
+        <p>A small management committee, each responsible for a different part of how the business runs day to day.</p>
+      </div>
+
+      <div class="team-grid reveal">
+        <div class="team-card">
+          <div class="initial">R</div>
+          <h4>Rubben Numunepe</h4>
+          <div class="role">Operations Manager · Chairperson</div>
+          <p>Oversees daily operations, farmer relationships, and quality assurance across Saidor and Nayudo.</p>
+        </div>
+        <div class="team-card">
+          <div class="initial">O</div>
+          <h4>Oliver Michael</h4>
+          <div class="role">Sales Associate · Secretary</div>
+          <p>Manages exporter relationships in Goroka, online sales channels, and customer communication.</p>
+        </div>
+        <div class="team-card">
+          <div class="initial">T</div>
+          <h4>Terina Erick</h4>
+          <div class="role">Administrative Assistant · Treasurer</div>
+          <p>Handles record-keeping, inventory tracking, and the financial side of every buying trip.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── REGISTRATION STRIP ───────── -->
+  <section class="pricing-strip">
+    <div class="wrap">
+      <div class="pricing-wrap reveal">
+        <div class="pricing-item">
+          <div class="label">Registration No.</div>
+          <div class="value">4-129031573</div>
+        </div>
+        <div class="pricing-item">
+          <div class="label">Incorporated</div>
+          <div class="value">29 Feb <span class="unit">2024</span></div>
+        </div>
+        <div class="pricing-item">
+          <div class="label">TIN</div>
+          <div class="value">502618045</div>
+        </div>
+        <div class="pricing-item">
+          <div class="label">Business Activity</div>
+          <div class="value">Agriculture <span class="unit">/ Trade</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── CTA ───────── -->
+  <section class="cta-section">
+    <div class="wrap">
+      <div class="reveal">
+        <h2>Want to know more — or sell us your coffee?</h2>
+        <p>We're always happy to talk, whether you're a farmer, a wholesaler, or someone interested in how the business runs.</p>
+        <div class="cta-buttons">
+          <a href="#/contact" data-route="contact" class="btn btn-primary">Get in touch</a>
+          <a href="#/services" data-route="services" class="btn btn-ghost">See our services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  </div>
+
+  <div class="route-view" id="view-services">
+
+
+  <section class="page-banner">
+    <div class="wrap">
+      <div class="crumb"><a href="#/home" data-route="home">Home</a> / Services</div>
+      <h1>What we do — and what we're building toward.</h1>
+      <p>Two services are running today. The rest are part of a deliberate plan to capture more value for farmers as the business grows — not a wishlist, a roadmap.</p>
+    </div>
+  </section>
+
+  <!-- ───────── ROUTE (full version) ───────── -->
+  <section class="route-section" id="route-svc">
+    <div class="wrap">
+      <div class="route-head reveal">
+        <div class="eyebrow">The journey your coffee takes</div>
+        <h2>From your drying rack to the exporter's door.</h2>
+        <p>This is the actual route — not a flowchart. We run it ourselves, end to end, so your coffee doesn't sit waiting on someone else's schedule.</p>
+      </div>
+
+      <div class="route reveal">
+        <div class="route-stop">
+          <div class="dot cherry">1</div>
+          <h4>Farm collection</h4>
+          <p>We visit Saidor &amp; Nayudo villages directly — no need to carry coffee anywhere yourself.</p>
+          <span class="tag">By foot &amp; dinghy</span>
+        </div>
+        <div class="route-stop">
+          <div class="dot">2</div>
+          <h4>Quality check &amp; weigh-in</h4>
+          <p>Inspected and weighed on the spot. You see the scale, you see the price.</p>
+          <span class="tag">Same-day payment</span>
+        </div>
+        <div class="route-stop">
+          <div class="dot">3</div>
+          <h4>Storage, Saidor</h4>
+          <p>Held in dry, covered storage until transport is ready — no spoilage waiting around.</p>
+          <span class="tag">Saidor depot</span>
+        </div>
+        <div class="route-stop">
+          <div class="dot">4</div>
+          <h4>Transport to Goroka</h4>
+          <p>Moved by truck on a fixed schedule, not whenever someone gets around to it.</p>
+          <span class="tag">~6 hour route</span>
+        </div>
+        <div class="route-stop">
+          <div class="dot cherry">5</div>
+          <h4>Sold to exporters</h4>
+          <p>Delivered to established Goroka exporters for processing and onward export.</p>
+          <span class="tag">Goroka, EHP</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── FULL SERVICES LIST ───────── -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Running now, and what's next</h2>
+        <p>Each service below is at a different stage — from fully operational to early planning. We'd rather be upfront about that than overstate where we are.</p>
+      </div>
+
+      <div class="reveal">
+        <div class="service-row">
+          <div class="ico">①</div>
+          <div>
+            <h3>Parchment coffee buying</h3>
+            <p>Direct purchase from farmers in Saidor and Nayudo at transparent, competitive prices. Every batch is inspected on the spot before purchase, and payment happens at the point of collection — not weeks later.</p>
+          </div>
+          <div class="status">Running now</div>
+        </div>
+
+        <div class="service-row">
+          <div class="ico">②</div>
+          <div>
+            <h3>Transport &amp; logistics</h3>
+            <p>Collection by dinghy across river and coastal routes, and by truck for the Saidor–Goroka corridor. Farmers don't need to find their own way to a buyer — we come to the village.</p>
+          </div>
+          <div class="status">Running now</div>
+        </div>
+
+        <div class="service-row">
+          <div class="ico">③</div>
+          <div>
+            <h3>Coffee grading</h3>
+            <p>On-site grading to assess and categorise coffee quality, helping farmers understand exactly what drives a better price — and how to get there next harvest.</p>
+          </div>
+          <div class="status soon">In development</div>
+        </div>
+
+        <div class="service-row">
+          <div class="ico">④</div>
+          <div>
+            <h3>Drying facilities</h3>
+            <p>Proper drying infrastructure at our Saidor depot to cut post-harvest losses and protect coffee quality during the wait for transport.</p>
+          </div>
+          <div class="status soon">In development</div>
+        </div>
+
+        <div class="service-row">
+          <div class="ico">⑤</div>
+          <div>
+            <h3>Packaging &amp; branding</h3>
+            <p>Quality, recognisable packaging so Rai Coast coffee is identified — and priced — as a premium product, not a generic commodity.</p>
+          </div>
+          <div class="status soon">In development</div>
+        </div>
+
+        <div class="service-row">
+          <div class="ico">⑥</div>
+          <div>
+            <h3>Field agent network</h3>
+            <p>Training and employing local youth as buying agents, so we can reach more villages across Rai Coast without losing the direct, personal relationship farmers trust us for.</p>
+          </div>
+          <div class="status soon">In development</div>
+        </div>
+
+        <div class="service-row">
+          <div class="ico">⑦</div>
+          <div>
+            <h3>Green bean processing &amp; export</h3>
+            <p>The long-term goal: process parchment into green bean ourselves and access export markets directly, capturing more of the value chain for the business and the farmers in it.</p>
+          </div>
+          <div class="status soon">Long-term plan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── PRICING ───────── -->
+  <section class="pricing-strip" id="pricing-svc">
+    <div class="wrap">
+      <div class="pricing-wrap reveal">
+        <div class="pricing-item">
+          <div class="label">Parchment coffee</div>
+          <div class="value">K 4.50 <span class="unit">/ kg</span></div>
+        </div>
+        <div class="pricing-item">
+          <div class="label">Collection</div>
+          <div class="value">Free <span class="unit">in Saidor &amp; Nayudo</span></div>
+        </div>
+        <div class="pricing-item">
+          <div class="label">Payment</div>
+          <div class="value">Same day <span class="unit">on collection</span></div>
+        </div>
+        <div class="pricing-item">
+          <div class="label">Minimum quantity</div>
+          <div class="value">None <span class="unit">any amount accepted</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── CTA ───────── -->
+  <section class="cta-section">
+    <div class="wrap">
+      <div class="reveal">
+        <h2>Ready to sell, or want to ask about pricing?</h2>
+        <p>Get in touch directly and we'll arrange a collection visit or answer any questions about how buying works.</p>
+        <div class="cta-buttons">
+          <a href="#/contact" data-route="contact" class="btn btn-primary">Get in touch</a>
+          <a href="#/about" data-route="about" class="btn btn-ghost">Learn about us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  </div>
+
+  <div class="route-view" id="view-contact">
+
+
+  <section class="page-banner">
+    <div class="wrap">
+      <div class="crumb"><a href="#/home" data-route="home">Home</a> / Contact</div>
+      <h1>Let's talk.</h1>
+      <p>Whether you've got coffee ready to sell, you're a wholesaler looking for a reliable supply line, or you just have a question — reach out and we'll get back to you directly.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap contact-layout">
+
+      <!-- ───────── FORM ───────── -->
+      <div class="reveal">
+        <h2 style="font-size:24px; margin-bottom:8px;">Send us a message</h2>
+        <p style="color:var(--ink-soft); font-size:14.5px; margin-bottom:32px;">Fill in the form and we'll respond as soon as we can — usually within a couple of days.</p>
+
+        <form id="contact-form" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
+          </div>
+
+          <div class="field">
+            <label for="role">I am a...</label>
+            <select id="role" name="role" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="farmer">Coffee farmer</option>
+              <option value="wholesaler">Wholesaler / Exporter</option>
+              <option value="partner">Funding / NGO partner</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="location">Village / location</label>
+            <input type="text" id="location" name="location" placeholder="e.g. Mibu Village, Ward 15, Nayudo LLG">
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" required placeholder="e.g. 7XXX XXXX">
+          </div>
+
+          <div class="field">
+            <label for="email">Email (optional)</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Tell us a bit about what you need — e.g. how much coffee you have ready, or what you're asking about."></textarea>
+          </div>
+
+          <p class="form-note">We'll only use these details to respond to your enquiry.</p>
+
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send message</button>
+        </form>
+
+        <div id="form-success" style="display:none; margin-top:24px; padding:20px; background:var(--parch2); border:1px solid var(--line); border-left:3px solid var(--leaf);">
+          <strong style="display:block; margin-bottom:6px;">Message ready to send.</strong>
+          <span style="font-size:13.5px; color:var(--ink-soft);">Thanks — for the fastest response, please also call or message us directly using the details alongside. We check the phone daily.</span>
+        </div>
+      </div>
+
+      <!-- ───────── CONTACT DETAILS ───────── -->
+      <div class="reveal">
+        <h2 style="font-size:24px; margin-bottom:24px;">Direct contact</h2>
+
+        <div class="info-list">
+          <div class="info-item">
+            <div class="ico">☎</div>
+            <div>
+              <h4>Phone</h4>
+              <p><a href="tel:74697783">7469 7783</a></p>
+              <div class="sub">Best for urgent enquiries or arranging a collection visit</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="ico">✉</div>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:nrubben04@gmail.com">nrubben04@gmail.com</a></p>
+              <div class="sub">We reply within a couple of business days</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="ico">⌂</div>
+            <div>
+              <h4>Postal address</h4>
+              <p>C/- P.O. Box 2070</p>
+              <div class="sub">Madang 2511, Madang Province, PNG</div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="ico">◎</div>
+            <div>
+              <h4>Buying locations</h4>
+              <p>Saidor &amp; Nayudo</p>
+              <div class="sub">Rai Coast District, Madang Province</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-stub">
+          <div class="pin">◎</div>
+          <h4>Mibu Village, Ward 15, Nayudo LLG</h4>
+          <p>Rai Coast District, Madang Province, Papua New Guinea</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────── FAQ-STYLE STRIP ───────── -->
+  <section class="trust">
+    <div class="wrap">
+      <div class="section-head reveal" style="margin-bottom:36px;">
+        <h2 style="font-size:26px;">Before you reach out</h2>
+        <p>A few quick answers that might save you a phone call.</p>
+      </div>
+      <div class="principles reveal">
+        <div class="principle">
+          <div class="mark">Q</div>
+          <div><h4>Do I need a minimum amount of coffee to sell?</h4><p>No — we'll buy any quantity of parchment coffee, large or small.</p></div>
+        </div>
+        <div class="principle">
+          <div class="mark">Q</div>
+          <div><h4>How quickly do I get paid?</h4><p>On the spot, same day, at the point of collection.</p></div>
+        </div>
+        <div class="principle">
+          <div class="mark">Q</div>
+          <div><h4>Do you collect, or do I need to bring coffee to you?</h4><p>We come to you. Call ahead and we'll schedule a village visit.</p></div>
+        </div>
+        <div class="principle">
+          <div class="mark">Q</div>
+          <div><h4>I'm a wholesaler — can we discuss a supply agreement?</h4><p>Yes — email us directly and we can talk through volume and terms.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-mark">D</span>
+        <div>Dipsa Business Group</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Business</h5>
+          <a href="#/services" data-route="services">What we do</a>
+          <a href="#/about" data-route="about">About us</a>
+          <a href="#/contact" data-route="contact">Get in touch</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <span>74697783</span>
+          <span>nrubben04@gmail.com</span>
+        </div>
+        <div class="footer-col">
+          <h5>Registered</h5>
+          <span>Reg. No. 4-129031573</span>
+          <span>Business Groups Incorporation Act 1974</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Dipsa Business Group (Inc.). Saidor &amp; Nayudo, Rai Coast District, Madang Province, PNG.</span>
+      <span>Family-owned coffee buying business.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ───────── Single-page router ─────────
+  const views = {
+    home: document.getElementById('view-home'),
+    about: document.getElementById('view-about'),
+    services: document.getElementById('view-services'),
+    contact: document.getElementById('view-contact'),
+  };
+  const navLinks = document.querySelectorAll('a[data-route]');
+
+  function showRoute(route, scrollTop = true){
+    if(!views[route]) route = 'home';
+    Object.keys(views).forEach(k => views[k].classList.toggle('active-view', k === route));
+    navLinks.forEach(a => a.classList.toggle('active', a.dataset.route === route));
+    if(scrollTop) window.scrollTo({top:0, behavior:'instant'});
+    initReveals();
+  }
+
+  function routeFromHash(){
+    const hash = window.location.hash.replace('#/', '').trim();
+    return hash || 'home';
+  }
+
+  window.addEventListener('hashchange', () => showRoute(routeFromHash()));
+
+  // ───────── Scroll reveal (re-runs per view) ─────────
+  let io;
+  function initReveals(){
+    if(io) io.disconnect();
+    io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.15});
+    document.querySelectorAll('.route-view.active-view .reveal').forEach(el => io.observe(el));
+  }
+
+  // ───────── Contact form (front-end only) ─────────
+  document.addEventListener('submit', function(e){
+    if(e.target && e.target.id === 'contact-form'){
+      e.preventDefault();
+      const form = e.target;
+      if(!form.checkValidity()){ form.reportValidity(); return; }
+      form.style.display = 'none';
+      const success = document.getElementById('form-success');
+      if(success){
+        success.style.display = 'block';
+        success.scrollIntoView({behavior:'smooth', block:'center'});
+      }
+    }
+  });
+
+  // ───────── Init ─────────
+  showRoute(routeFromHash(), false);
+</script>
+
+</body>
+</html>
